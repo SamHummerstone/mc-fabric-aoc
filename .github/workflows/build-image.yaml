@@ -35,6 +35,10 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Lowercase reponame
+        run: |
+          echo "LOWER_IMAGE=${IMAGE@L}" >> "${GITHUB_ENV}"
+
       - name: Build and push image (with registry cache)
         uses: docker/build-push-action@v4
         with:
@@ -42,6 +46,6 @@ jobs:
           file: ./Dockerfile
           push: true
           platforms: linux/amd64,linux/arm64
-          tags: ${{ env.IMAGE }}:${{ github.sha }},${{ env.IMAGE }}:latest
-          cache-from: type=registry,ref=${{ env.IMAGE }}:cache
-          cache-to: type=registry,ref=${{ env.IMAGE }}:cache,mode=max
+          tags: ${{ env.LOWER_IMAGE }}:${{ github.sha }},${{ env.LOWER_IMAGE }}:${{ github.short_ref }},${{ env.LOWER_IMAGE }}:latest
+          cache-from: type=registry,ref=${{ env.LOWER_IMAGE }}:cache
+          cache-to: type=registry,ref=${{ env.LOWER_IMAGE }}:cache,mode=max
