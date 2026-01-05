@@ -1,0 +1,19 @@
+services:
+  mc-server:
+    image: mc-fabric-aoc:test
+    container_name: mc-server
+    ports:
+      - "25565:25565"
+    entrypoint: ["java", "-Xmx4G", "-jar", "server.jar", "nogui" ]
+    volumes:
+      - aoc-world:/server/world:rw
+
+    restart: "yes"
+
+volumes:
+  aoc-world:
+    name: aoc-world
+
+# Note: docker-compose does not auto-remove containers like `--rm`.
+# To emulate `docker run --rm --entrypoint bash mc-fabric-aoc:test` use:
+#   docker compose run --rm mc-server

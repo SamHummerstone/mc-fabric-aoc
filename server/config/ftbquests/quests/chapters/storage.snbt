@@ -1,0 +1,136 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: ""
+	filename: "storage"
+	group: "4C2FCE3362C8E44C"
+	icon: "toms_storage:ts.storage_terminal"
+	id: "204DBC331473AA13"
+	order_index: 1
+	quest_links: [ ]
+	quests: [
+		{
+			id: "1812A79944021D76"
+			rewards: [{
+				id: "2FD5421E17619414"
+				type: "xp"
+				xp: 50
+			}]
+			subtitle: "Think of wires all connecting from several places into a single point."
+			tasks: [{
+				id: "3D7616496DA3521D"
+				item: "toms_storage:ts.inventory_connector"
+				type: "item"
+			}]
+			title: "Touch"
+			x: -0.5d
+			y: -2.5d
+		}
+		{
+			dependencies: ["1812A79944021D76"]
+			id: "4918B0939E4604A0"
+			rewards: [{
+				id: "284F68AC51F25AFB"
+				type: "xp"
+				xp: 50
+			}]
+			subtitle: "Have a look at your entire inventory like a computer looking at all their files in one place and access them."
+			tasks: [
+				{
+					id: "51ABC8AF78B685AB"
+					item: "toms_storage:ts.storage_terminal"
+					type: "item"
+				}
+				{
+					id: "2B908AACADC06896"
+					item: "toms_storage:ts.crafting_terminal"
+					type: "item"
+				}
+			]
+			title: "Terminals"
+			x: 0.0d
+			y: -1.5d
+		}
+		{
+			dependencies: ["1812A79944021D76"]
+			id: "408C34432E394C2B"
+			rewards: [{
+				id: "42C2F3ECECF85106"
+				type: "xp"
+				xp: 50
+			}]
+			subtitle: "Extension cables, but instead of electricity, it is essentially an item cable."
+			tasks: [
+				{
+					id: "6D5ED7E8751D87C8"
+					item: "toms_storage:ts.inventory_cable"
+					type: "item"
+				}
+				{
+					id: "707B082B1A9F6240"
+					item: "toms_storage:ts.inventory_cable_framed"
+					type: "item"
+				}
+			]
+			x: -0.5d
+			y: -3.5d
+		}
+		{
+			dependencies: ["1812A79944021D76"]
+			id: "3C1E7E02FDDFF8E3"
+			rewards: [{
+				id: "344AB60A0099118C"
+				type: "xp"
+				xp: 50
+			}]
+			subtitle: "If you know how Create's item vault and filters work, this is similar."
+			tasks: [{
+				id: "57CCD702C6F8AD64"
+				item: "toms_storage:ts.inventory_hopper_basic"
+				type: "item"
+			}]
+			x: 0.5d
+			y: -2.5d
+		}
+		{
+			dependencies: ["1812A79944021D76"]
+			id: "49A012E78620BCB1"
+			rewards: [{
+				id: "53E1C1444BD7C7C4"
+				type: "xp"
+				xp: 50
+			}]
+			tasks: [{
+				id: "3AFD84E7B8D52946"
+				item: "toms_storage:ts.inventory_proxy"
+				type: "item"
+			}]
+			x: -1.5d
+			y: -2.5d
+		}
+		{
+			dependencies: ["1812A79944021D76"]
+			id: "5E783474BA6980E3"
+			rewards: [{
+				id: "196174304715BF7B"
+				type: "xp"
+				xp: 50
+			}]
+			subtitle: "You can craft while you're away from your main base, but remember that it is quite costly for such a benefit."
+			tasks: [
+				{
+					id: "4EA516B03DB9C790"
+					item: "toms_storage:ts.wireless_terminal"
+					type: "item"
+				}
+				{
+					id: "256E3A469E9BE3EF"
+					item: "toms_storage:ts.adv_wireless_terminal"
+					type: "item"
+				}
+			]
+			x: -1.0d
+			y: -1.5d
+		}
+	]
+	title: " &eStorage"
+}

@@ -1,7 +1,7 @@
 FROM debian:stable AS builder
 
-ARG MC_VERSION=1.21.11
-ARG FABRIC_VERSION=0.18.4
+ARG MC_VERSION=1.20.1
+ARG FABRIC_VERSION=0.16.0
 ARG INSTALLER_VERSION=1.1.1
 
 RUN apt-get -y update && \
@@ -10,15 +10,17 @@ RUN apt-get -y update && \
 WORKDIR /build
 RUN curl -o server.jar https://meta.fabricmc.net/v2/versions/loader/${MC_VERSION}/${FABRIC_VERSION}/${INSTALLER_VERSION}/server/jar
 
-FROM amazoncorretto:21-alpine-jdk AS server
+FROM amazoncorretto:21.0.9-al2-generic AS server
 WORKDIR /server
 
 COPY --from=builder /build/server.jar .
 
 RUN java -jar server.jar --initSettings
 RUN sed -i -e 's/false/true/g' eula.txt
-COPY server/* .
+COPY server/ .
 
 EXPOSE 25565
+VOLUME [ "/server/world" ]
+
 ENTRYPOINT [ "java" ] 
 CMD [ "-Xmx4G", "-jar", "server.jar", "nogui" ]
