@@ -46,6 +46,6 @@ jobs:
           file: ./Dockerfile
           push: true
           platforms: linux/amd64,linux/arm64
-          tags: ${{ env.LOWER_IMAGE }}:${{ github.sha }},${{ env.LOWER_IMAGE }}:${{ github.short_ref }},${{ env.LOWER_IMAGE }}:latest
+          tags: ${{ env.LOWER_IMAGE }}:${{ github.sha }},${{ env.LOWER_IMAGE }}:${{ github.ref_name }},${{ env.LOWER_IMAGE }}:latest
           cache-from: type=registry,ref=${{ env.LOWER_IMAGE }}:cache
           cache-to: type=registry,ref=${{ env.LOWER_IMAGE }}:cache,mode=max
