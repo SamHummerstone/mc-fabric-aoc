@@ -1,6 +1,6 @@
 services:
   mc-server:
-    image: mc-fabric-aoc:test
+    image: ghcr.io/samhummerstone/mc-fabric-aoc:main
     container_name: mc-server
     ports:
       - "25565:25565"
@@ -8,7 +8,7 @@ services:
     volumes:
       - aoc-world:/server/world:rw
 
-    restart: "yes"
+    restart: "on-failure"
 
 volumes:
   aoc-world:
